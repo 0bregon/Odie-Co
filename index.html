@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Odie & Co. | Calzado infantil</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --kaki: #9b9a72;
+            --kaki-dark: #77764f;
+            --kaki-light: #e8e7d5;
+
+            --cream: #faf8f3;
+            --white: #ffffff;
+
+            --pink: #e8c9c5;
+            --blue: #cbd9dc;
+            --peach: #ead5c0;
+            --green: #cbd6c5;
+
+            --text: #3f403a;
+            --muted: #77776f;
+
+            --border: #e8e5dd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: rgba(250, 248, 243, 0.96);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            height: 68px;
+            padding: 0 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 23px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--kaki-dark);
+        }
+
+        .menu {
+            display: none;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .nav-action {
+            width: 38px;
+            height: 38px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--white);
+            font-size: 15px;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            padding: 18px 16px 0;
+        }
+
+        .hero-image {
+            height: 430px;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            background: var(--kaki-light);
+        }
+
+        .hero-image img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            position: absolute;
+            inset: auto 20px 20px 20px;
+
+            background: rgba(250, 248, 243, 0.94);
+            border-radius: 15px;
+            padding: 24px 20px;
+        }
+
+        .eyebrow {
+            color: var(--kaki-dark);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 35px;
+            line-height: 1.15;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .hero-content p {
+            color: var(--muted);
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .primary-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--kaki);
+            color: white;
+
+            padding: 12px 20px;
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.2s ease;
+        }
+
+        .primary-button:hover {
+            background: var(--kaki-dark);
+        }
+
+        /* =========================
+           SECCIONES
+        ========================= */
+
+        .section {
+            padding: 65px 20px;
+        }
+
+        .section-header {
+            margin-bottom: 28px;
+        }
+
+        .section-header h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 29px;
+            line-height: 1.2;
+            margin-bottom: 7px;
+        }
+
+        .section-header p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           CATEGORIAS
+        ========================= */
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .category {
+            min-height: 165px;
+            border-radius: 14px;
+            padding: 20px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category:nth-child(1) {
+            background: var(--green);
+        }
+
+        .category:nth-child(2) {
+            background: var(--pink);
+        }
+
+        .category:nth-child(3) {
+            background: var(--blue);
+        }
+
+        .category:nth-child(4) {
+            background: var(--peach);
+        }
+
+        .category span {
+            font-size: 12px;
+            color: #66665d;
+            margin-bottom: 2px;
+        }
+
+        .category h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 21px;
+            font-weight: 600;
+        }
+
+        /* =========================
+           PRODUCTOS
+        ========================= */
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px 12px;
+        }
+
+        .product-image {
+            height: 210px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #eeeae2;
+            margin-bottom: 12px;
+        }
+
+        .product-image img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-category {
+            font-size: 11px;
+            color: var(--kaki-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            font-weight: 600;
+        }
+
+        .product h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin: 3px 0;
+        }
+
+        .product-price {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* =========================
+           GUIA DE TALLAS
+        ========================= */
+
+        .size-guide {
+            background: var(--kaki-light);
+            border-radius: 18px;
+            padding: 30px 22px;
+        }
+
+        .size-guide h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 29px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .size-guide p {
+            color: #68685e;
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+
+        .size-steps {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .size-step {
+            background: rgba(255,255,255,0.6);
+            border-radius: 9px;
+            padding: 13px 15px;
+
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .step-number {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+
+            background: var(--kaki);
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .size-step span {
+            font-size: 13px;
+        }
+
+        .secondary-button {
+            display: inline-block;
+            border: 1px solid var(--kaki-dark);
+            color: var(--kaki-dark);
+            padding: 11px 18px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* =========================
+           PROPUESTA DE VALOR
+        ========================= */
+
+        .values {
+            display: grid;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .value {
+            background: var(--white);
+            padding: 25px 20px;
+        }
+
+        .value h3 {
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .value p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #5f604c;
+            color: white;
+            padding: 45px 20px 25px;
+        }
+
+        .footer-logo {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .footer-description {
+            color: #e2e2d9;
+            font-size: 13px;
+            max-width: 320px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .footer-links h3 {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #deded5;
+            font-size: 12px;
+            margin-bottom: 7px;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            margin-top: 30px;
+            padding-top: 18px;
+            color: #d2d2c8;
+            font-size: 11px;
+        }
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (min-width: 700px) {
+
+            .navbar {
+                max-width: 1200px;
+                margin: auto;
+                padding: 0 30px;
+            }
+
+            .menu {
+                display: flex;
+                gap: 28px;
+                font-size: 13px;
+                font-weight: 600;
+            }
+
+            .hero {
+                max-width: 1200px;
+                margin: auto;
+                padding: 25px 30px 0;
+            }
+
+            .hero-image {
+                height: 540px;
+            }
+
+            .hero-content {
+                max-width: 500px;
+                padding: 30px;
+                left: 35px;
+                bottom: 35px;
+            }
+
+            h1 {
+                font-size: 47px;
+            }
+
+            .section {
+                max-width: 1200px;
+                margin: auto;
+                padding: 85px 30px;
+            }
+
+            .categories {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .products {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 25px;
+            }
+
+            .product-image {
+                height: 280px;
+            }
+
+            .size-guide {
+                padding: 45px;
+            }
+
+            .size-steps {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .values {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            footer {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="#" class="logo">
+                Odie <span>& Co.</span>
+            </a>
+
+            <div class="menu">
+                <a href="#inicio">Inicio</a>
+                <a href="#tienda">Tienda</a>
+                <a href="#categorias">Categorías</a>
+                <a href="#tallas">Guía de tallas</a>
+                <a href="#nosotros">Nosotros</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="#" class="nav-action" aria-label="Buscar">⌕</a>
+                <a href="#" class="nav-action" aria-label="Carrito">0</a>
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero" id="inicio">
+
+            <div class="hero-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=1400&q=85"
+                    alt="Calzado infantil"
+                >
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        Calzado infantil
+                    </div>
+
+                    <h1>
+                        Pequeños pasos, bien acompañados.
+                    </h1>
+
+                    <p>
+                        Zapatos cómodos y flexibles para bebés y niños pequeños,
+                        pensados para acompañar cada etapa de su crecimiento.
+                    </p>
+
+                    <a href="#tienda" class="primary-button">
+                        Ver calzado
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CATEGORÍAS -->
+
+        <section class="section" id="categorias">
+
+            <div class="section-header">
+
+                <h2>
+                    Encuentra el calzado adecuado
+                </h2>
+
+                <p>
+                    Elige según la etapa y las necesidades de tu pequeño.
+                </p>
+
+            </div>
+
+            <div class="categories">
+
+                <a href="#" class="category">
+                    <span>0 a 12 meses</span>
+                    <h3>Bebés</h3>
+                </a>
+
+                <a href="#" class="category">
+                    <span>Primeros pasos</span>
+                    <h3>Primeros pasos</h3>
+                </a>
+
+                <a href="#" class="category">
+                    <span>1 a 3 años</span>
+                    <h3>Pequeños caminantes</h3>
+                </a>
+
+                <a href="#" class="category">
+                    <span>Para ocasiones especiales</span>
+                    <h3>Especiales</h3>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRODUCTOS -->
+
+        <section class="section" id="tienda">
+
+            <div class="section-header">
+
+                <h2>
+                    Favoritos de Odie
+                </h2>
+
+                <p>
+                    Algunos de nuestros modelos destacados.
+                </p>
+
+            </div>
+
+            <div class="products">
+
+                <article class="product">
+
+                    <div class="product-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=700&q=85"
+                            alt="Zapatos infantiles color rosa"
+                        >
+                    </div>
+
+                    <span class="product-category">
+                        Primeros pasos
+                    </span>
+
+                    <h3>
+                        Rosa Suave
+                    </h3>
+
+                    <span class="product-price">
+                        $24.99
+                    </span>
+
+                </article>
+
+
+                <article class="product">
+
+                    <div class="product-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=700&q=85"
+                            alt="Zapatos para bebé"
+                        >
+                    </div>
+
+                    <span class="product-category">
+                        Bebés
+                    </span>
+
+                    <h3>
+                        Primer Paso
+                    </h3>
+
+                    <span class="product-price">
+                        $21.99
+                    </span>
+
+                </article>
+
+
+                <article class="product">
+
+                    <div class="product-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=700&q=85"
+                            alt="Tenis infantiles"
+                        >
+                    </div>
+
+                    <span class="product-category">
+                        Caminantes
+                    </span>
+
+                    <h3>
+                        Odie Classic
+                    </h3>
+
+                    <span class="product-price">
+                        $29.99
+                    </span>
+
+                </article>
+
+
+                <article class="product">
+
+                    <div class="product-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=700&q=85"
+                            alt="Sandalias infantiles"
+                        >
+                    </div>
+
+                    <span class="product-category">
+                        Sandalias
+                    </span>
+
+                    <h3>
+                        Día de Sol
+                    </h3>
+
+                    <span class="product-price">
+                        $19.99
+                    </span>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- GUÍA DE TALLAS -->
+
+        <section class="section" id="tallas">
+
+            <div class="size-guide">
+
+                <div class="eyebrow">
+                    Guía de tallas
+                </div>
+
+                <h2>
+                    Elegir la talla correcta no tiene que ser complicado.
+                </h2>
+
+                <p>
+                    Te ayudamos a medir el pie de tu pequeño y encontrar
+                    el espacio adecuado para que pueda crecer cómodamente.
+                </p>
+
+                <div class="size-steps">
+
+                    <div class="size-step">
+                        <div class="step-number">1</div>
+                        <span>Mide el pie en casa.</span>
+                    </div>
+
+                    <div class="size-step">
+                        <div class="step-number">2</div>
+                        <span>Compara la medida con nuestra guía.</span>
+                    </div>
+
+                    <div class="size-step">
+                        <div class="step-number">3</div>
+                        <span>Elige la talla con espacio suficiente.</span>
+                    </div>
+
+                </div>
+
+                <a href="#" class="secondary-button">
+                    Ver guía de tallas
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROPUESTA DE VALOR -->
+
+        <section class="section" id="nosotros">
+
+            <div class="section-header">
+
+                <h2>
+                    Pensado para sus primeros años
+                </h2>
+
+                <p>
+                    Porque los pies pequeños necesitan espacio para moverse.
+                </p>
+
+            </div>
+
+            <div class="values">
+
+                <div class="value">
+
+                    <h3>
+                        Comodidad
+                    </h3>
+
+                    <p>
+                        Modelos ligeros y flexibles para acompañar
+                        sus actividades del día a día.
+                    </p>
+
+                </div>
+
+                <div class="value">
+
+                    <h3>
+                        Espacio para crecer
+                    </h3>
+
+                    <p>
+                        Te orientamos para elegir una talla adecuada
+                        sin comprimir el pie.
+                    </p>
+
+                </div>
+
+                <div class="value">
+
+                    <h3>
+                        Compra con confianza
+                    </h3>
+
+                    <p>
+                        Información clara para que puedas tomar
+                        una mejor decisión antes de comprar.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Odie & Co.
+        </div>
+
+        <p class="footer-description">
+            Calzado infantil pensado para acompañar
+            los primeros pasos y cada nueva aventura.
+        </p>
+
+        <div class="footer-links">
+
+            <div>
+
+                <h3>Tienda</h3>
+
+                <a href="#">Bebés</a>
+                <a href="#">Primeros pasos</a>
+                <a href="#">Caminantes</a>
+                <a href="#">Sandalias</a>
+
+            </div>
+
+            <div>
+
+                <h3>Ayuda</h3>
+
+                <a href="#">Guía de tallas</a>
+                <a href="#">Envíos</a>
+                <a href="#">Cambios y devoluciones</a>
+                <a href="#">Contacto</a>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Odie & Co. Todos los derechos reservados.
+        </div>
+
+    </footer>
+
+</body>
+</html>

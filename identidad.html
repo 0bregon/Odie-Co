@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Acerca de nosotros | Odie & Co.</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --kaki: #9b9a72;
+            --kaki-dark: #77764f;
+            --kaki-light: #e8e7d5;
+
+            --cream: #faf8f3;
+            --white: #ffffff;
+
+            --pink: #e8c9c5;
+            --blue: #cbd9dc;
+            --peach: #ead5c0;
+            --green: #cbd6c5;
+
+            --text: #3f403a;
+            --muted: #77776f;
+
+            --border: #e8e5dd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* HEADER */
+
+        header {
+            background: rgba(250, 248, 243, 0.96);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            height: 68px;
+            padding: 0 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 23px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--kaki-dark);
+        }
+
+        .menu {
+            display: none;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .nav-action {
+            width: 38px;
+            height: 38px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--white);
+            font-size: 15px;
+        }
+
+        /* PAGE HERO (paginas internas) */
+
+        .page-hero {
+            padding: 46px 20px 10px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .page-hero .eyebrow {
+            color: var(--kaki-dark);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .page-hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 33px;
+            line-height: 1.2;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .page-hero p {
+            color: var(--muted);
+            font-size: 15px;
+            max-width: 620px;
+        }
+
+        .section {
+            padding: 40px 20px 70px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 24px;
+        }
+
+        .section-header h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            line-height: 1.2;
+            margin-bottom: 7px;
+        }
+
+        .section-header p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .primary-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--kaki);
+            color: white;
+
+            padding: 12px 20px;
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .primary-button:hover {
+            background: var(--kaki-dark);
+        }
+
+        .secondary-button {
+            display: inline-block;
+            border: 1px solid var(--kaki-dark);
+            color: var(--kaki-dark);
+            padding: 11px 18px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #5f604c;
+            color: white;
+            padding: 45px 20px 25px;
+        }
+
+        .footer-logo {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .footer-description {
+            color: #e2e2d9;
+            font-size: 13px;
+            max-width: 320px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .footer-links h3 {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #deded5;
+            font-size: 12px;
+            margin-bottom: 7px;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            margin-top: 30px;
+            padding-top: 18px;
+            color: #d2d2c8;
+            font-size: 11px;
+        }
+
+        /* TABLET */
+
+        @media (min-width: 700px) {
+
+            .navbar {
+                max-width: 1200px;
+                margin: auto;
+                padding: 0 30px;
+            }
+
+            .menu {
+                display: flex;
+                gap: 28px;
+                font-size: 13px;
+                font-weight: 600;
+            }
+
+            .page-hero {
+                max-width: 1200px;
+                padding: 60px 30px 15px;
+            }
+
+            .page-hero h1 {
+                font-size: 44px;
+            }
+
+            .section {
+                max-width: 1200px;
+                padding: 50px 30px 90px;
+            }
+
+            footer {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        }
+
+        /* WIDGET DE AYUDA (CHAT) */
+
+        .help-button {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: var(--kaki);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 8px 20px rgba(63,64,58,0.25);
+            z-index: 200;
+            transition: 0.2s ease;
+        }
+
+        .help-button:hover {
+            background: var(--kaki-dark);
+            transform: scale(1.05);
+        }
+
+        .chat-panel {
+            position: fixed;
+            right: 20px;
+            bottom: 88px;
+            width: min(320px, calc(100vw - 40px));
+            max-height: 440px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(63,64,58,0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 200;
+        }
+
+        .chat-panel.open {
+            display: flex;
+        }
+
+        .chat-header {
+            background: var(--kaki);
+            color: white;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-header strong {
+            font-size: 14px;
+        }
+
+        .chat-header span {
+            display: block;
+            font-size: 11px;
+            opacity: 0.85;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 14px 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: var(--cream);
+        }
+
+        .chat-bubble {
+            font-size: 13px;
+            padding: 9px 12px;
+            border-radius: 12px;
+            max-width: 85%;
+        }
+
+        .chat-bubble.bot {
+            background: var(--kaki-light);
+            color: var(--text);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .chat-bubble.user {
+            background: var(--kaki);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-input-row {
+            display: flex;
+            border-top: 1px solid var(--border);
+        }
+
+        .chat-input-row input {
+            flex: 1;
+            border: none;
+            padding: 12px 14px;
+            font-size: 13px;
+            font-family: inherit;
+            background: var(--white);
+        }
+
+        .chat-input-row input:focus {
+            outline: none;
+        }
+
+        .chat-input-row button {
+            border: none;
+            background: var(--white);
+            color: var(--kaki-dark);
+            font-weight: 700;
+            padding: 0 16px;
+            cursor: pointer;
+        }
+
+
+        .about-grid {
+            display: grid;
+            gap: 14px;
+            margin-bottom: 40px;
+        }
+
+        .about-photo {
+            height: 260px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--kaki-light);
+        }
+
+        .about-photo img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text p {
+            margin-bottom: 14px;
+            color: var(--text);
+            font-size: 15px;
+        }
+
+        .identity-grid {
+            display: grid;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .identity-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        .identity-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 17px;
+            margin-bottom: 6px;
+        }
+
+        .identity-card p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .fact-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .fact {
+            background: var(--kaki-light);
+            border-radius: 14px;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .fact strong {
+            display: block;
+            font-family: "Playfair Display", serif;
+            font-size: 24px;
+            color: var(--kaki-dark);
+        }
+
+        .fact span {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        @media (min-width: 700px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+            }
+
+            .about-photo {
+                height: 380px;
+            }
+
+            .identity-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .fact-row {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                Odie <span>& Co.</span>
+            </a>
+
+            <div class="menu">
+                <a href="index.html#inicio">Inicio</a>
+                <a href="index.html#tienda">Tienda</a>
+                <a href="index.html#categorias">Categorías</a>
+                <a href="identidad.html">Nosotros</a>
+                <a href="ubicacion.html">Ubicación</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="#" class="nav-action" aria-label="Buscar">⌕</a>
+                <a href="#" class="nav-action" aria-label="Carrito">0</a>
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="page-hero">
+            <div class="eyebrow">Acerca de nosotros</div>
+            <h1>La historia detrás de Odie &amp; Co.</h1>
+            <p>
+                [Texto de ejemplo — edítalo con la historia real de tu marca]
+                Odie &amp; Co. nació de la idea de que los primeros pasos merecen
+                calzado pensado especialmente para pies pequeños: cómodo, flexible
+                y con espacio suficiente para crecer.
+            </p>
+        </section>
+
+        <section class="section">
+
+            <div class="about-grid">
+
+                <div class="about-photo">
+                    <img
+                        src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=900&q=85"
+                        alt="Equipo Odie & Co."
+                    >
+                </div>
+
+                <div class="about-text">
+                    <p>
+                        [Texto de ejemplo] Desde nuestros inicios, nos hemos dedicado a
+                        diseñar calzado infantil que acompañe cada etapa del desarrollo
+                        de los más pequeños, combinando materiales suaves, plantillas
+                        flexibles y horma ergonómica.
+                    </p>
+                    <p>
+                        Creemos que un buen zapato no solo se ve bien, sino que
+                        respeta el movimiento natural del pie. Por eso cada modelo
+                        pasa por un proceso cuidadoso de diseño y prueba antes de
+                        llegar a nuestra tienda.
+                    </p>
+                    <p>
+                        Hoy seguimos creciendo junto a las familias que confían en
+                        nosotros para acompañar los primeros pasos, las primeras
+                        aventuras y cada nueva etapa de sus hijos.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="section-header">
+                <h2>Nuestra identidad</h2>
+                <p>Los valores que guían cada decisión que tomamos.</p>
+            </div>
+
+            <div class="identity-grid">
+
+                <div class="identity-card">
+                    <h3>Misión</h3>
+                    <p>
+                        [Editar] Ofrecer calzado infantil cómodo, seguro y de calidad
+                        que acompañe el crecimiento saludable de los pies de los niños.
+                    </p>
+                </div>
+
+                <div class="identity-card">
+                    <h3>Visión</h3>
+                    <p>
+                        [Editar] Ser la marca de referencia en calzado infantil,
+                        reconocida por su comodidad, diseño y confianza de las familias.
+                    </p>
+                </div>
+
+                <div class="identity-card">
+                    <h3>Valores</h3>
+                    <p>
+                        [Editar] Comodidad, calidad, cercanía con nuestros clientes
+                        y compromiso con el bienestar de cada niño y niña.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="fact-row">
+                <div class="fact">
+                    <strong>[XX]</strong>
+                    <span>Años de experiencia</span>
+                </div>
+                <div class="fact">
+                    <strong>[XX]</strong>
+                    <span>Modelos disponibles</span>
+                </div>
+                <div class="fact">
+                    <strong>[XX]</strong>
+                    <span>Familias felices</span>
+                </div>
+                <div class="fact">
+                    <strong>1</strong>
+                    <span>Tienda física</span>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="footer-logo">
+            Odie & Co.
+        </div>
+
+        <p class="footer-description">
+            Calzado infantil pensado para acompañar
+            los primeros pasos y cada nueva aventura.
+        </p>
+
+        <div class="footer-links">
+
+            <div>
+
+                <h3>Tienda</h3>
+
+                <a href="index.html#tienda">Bebés</a>
+                <a href="index.html#tienda">Primeros pasos</a>
+                <a href="index.html#tienda">Caminantes</a>
+                <a href="index.html#tienda">Sandalias</a>
+
+            </div>
+
+            <div>
+
+                <h3>Ayuda</h3>
+
+                <a href="identidad.html">Acerca de nosotros</a>
+                <a href="ubicacion.html">Ubicación de la tienda</a>
+                <a href="politicas.html">Cambios y devoluciones</a>
+                <a href="contacto.html">Contacto</a>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Odie & Co. Todos los derechos reservados.
+        </div>
+
+    </footer>
+
+
+    <!-- BOTÓN DE AYUDA / CHAT -->
+
+    <button class="help-button" id="helpButton" aria-label="Abrir asistente de ayuda">
+        💬
+    </button>
+
+    <div class="chat-panel" id="chatPanel">
+
+        <div class="chat-header">
+            <div>
+                <strong>Asistente Odie & Co.</strong>
+                <span>Normalmente responde al instante</span>
+            </div>
+            <button class="chat-close" id="chatClose" aria-label="Cerrar chat">✕</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-bubble bot">
+                ¡Hola! Soy el asistente virtual de Odie & Co. 👋 Puedo ayudarte con tallas,
+                envíos, cambios y devoluciones o cualquier duda sobre nuestros productos.
+                ¿En qué te ayudo?
+            </div>
+        </div>
+
+        <div class="chat-input-row">
+            <input type="text" id="chatInput" placeholder="Escribe tu mensaje...">
+            <button id="chatSend">Enviar</button>
+        </div>
+
+    </div>
+
+    <script>
+        (function () {
+            var helpButton = document.getElementById('helpButton');
+            var chatPanel = document.getElementById('chatPanel');
+            var chatClose = document.getElementById('chatClose');
+            var chatInput = document.getElementById('chatInput');
+            var chatSend = document.getElementById('chatSend');
+            var chatMessages = document.getElementById('chatMessages');
+
+            function toggleChat() {
+                chatPanel.classList.toggle('open');
+                if (chatPanel.classList.contains('open')) {
+                    chatInput.focus();
+                }
+            }
+
+            function addMessage(text, who) {
+                var bubble = document.createElement('div');
+                bubble.className = 'chat-bubble ' + who;
+                bubble.textContent = text;
+                chatMessages.appendChild(bubble);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            // Respuesta de demostración: aquí se debe conectar un backend
+            // propio con IA (por ejemplo, la API de Anthropic) para dar
+            // respuestas reales y personalizadas.
+            function botReply(userText) {
+                var text = userText.toLowerCase();
+                var reply = 'Gracias por tu mensaje. Un miembro de nuestro equipo ' +
+                    'te responderá pronto. Mientras tanto, revisa la sección de ' +
+                    'Cambios y devoluciones o Contacto para más información.';
+
+                if (text.indexOf('talla') !== -1) {
+                    reply = 'Puedes ver nuestra guía de tallas en la página de inicio, ' +
+                        'en la sección "Guía de tallas".';
+                } else if (text.indexOf('devol') !== -1 || text.indexOf('cambio') !== -1) {
+                    reply = 'Puedes consultar todos los detalles en la página de ' +
+                        'Cambios y devoluciones.';
+                } else if (text.indexOf('ubicaci') !== -1 || text.indexOf('tienda') !== -1 || text.indexOf('direcci') !== -1) {
+                    reply = 'Nuestra tienda está en Av. Las Américas, La Chorrera, ' +
+                        'Panamá Oeste. Puedes ver el mapa en la página de Ubicación.';
+                } else if (text.indexOf('contact') !== -1 || text.indexOf('tel') !== -1 || text.indexOf('correo') !== -1) {
+                    reply = 'Encuentras todos nuestros medios de contacto en la página de Contacto.';
+                }
+
+                setTimeout(function () {
+                    addMessage(reply, 'bot');
+                }, 500);
+            }
+
+            function sendMessage() {
+                var value = chatInput.value.trim();
+                if (!value) return;
+                addMessage(value, 'user');
+                chatInput.value = '';
+                botReply(value);
+            }
+
+            helpButton.addEventListener('click', toggleChat);
+            chatClose.addEventListener('click', toggleChat);
+            chatSend.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter') sendMessage();
+            });
+        })();
+    </script>
+
+</body>
+</html>

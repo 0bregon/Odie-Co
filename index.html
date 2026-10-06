@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="css/shop.css">
+
     <style>
 
         :root {
@@ -533,6 +535,139 @@
             }
         }
 
+        /* WIDGET DE AYUDA (CHAT) */
+
+        .help-button {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: var(--kaki);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 8px 20px rgba(63,64,58,0.25);
+            z-index: 200;
+            transition: 0.2s ease;
+        }
+
+        .help-button:hover {
+            background: var(--kaki-dark);
+            transform: scale(1.05);
+        }
+
+        .chat-panel {
+            position: fixed;
+            right: 20px;
+            bottom: 88px;
+            width: min(320px, calc(100vw - 40px));
+            max-height: 440px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(63,64,58,0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 200;
+        }
+
+        .chat-panel.open {
+            display: flex;
+        }
+
+        .chat-header {
+            background: var(--kaki);
+            color: white;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-header strong {
+            font-size: 14px;
+        }
+
+        .chat-header span {
+            display: block;
+            font-size: 11px;
+            opacity: 0.85;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 14px 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: var(--cream);
+        }
+
+        .chat-bubble {
+            font-size: 13px;
+            padding: 9px 12px;
+            border-radius: 12px;
+            max-width: 85%;
+        }
+
+        .chat-bubble.bot {
+            background: var(--kaki-light);
+            color: var(--text);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .chat-bubble.user {
+            background: var(--kaki);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-input-row {
+            display: flex;
+            border-top: 1px solid var(--border);
+        }
+
+        .chat-input-row input {
+            flex: 1;
+            border: none;
+            padding: 12px 14px;
+            font-size: 13px;
+            font-family: inherit;
+            background: var(--white);
+        }
+
+        .chat-input-row input:focus {
+            outline: none;
+        }
+
+        .chat-input-row button {
+            border: none;
+            background: var(--white);
+            color: var(--kaki-dark);
+            font-weight: 700;
+            padding: 0 16px;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 
@@ -551,12 +686,18 @@
                 <a href="#tienda">Tienda</a>
                 <a href="#categorias">Categorías</a>
                 <a href="#tallas">Guía de tallas</a>
-                <a href="#nosotros">Nosotros</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="identidad.html">Nosotros</a>
+                <a href="ubicacion.html">Ubicación</a>
+                <a href="contacto.html">Contacto</a>
             </div>
 
-            <div class="nav-actions">
-                <a href="#" class="nav-action" aria-label="Buscar">⌕</a>
-                <a href="#" class="nav-action" aria-label="Carrito">0</a>
+                        <div class="nav-actions">
+                <a href="carrito.html" class="nav-action" aria-label="Carrito">
+                    🛒
+                    <span id="navCartCount" class="cart-badge" style="display:none;">0</span>
+                </a>
+                <a href="login.html" class="nav-action" id="navAccountLink" aria-label="Mi cuenta">👤</a>
             </div>
 
         </nav>
@@ -905,10 +1046,11 @@
 
                 <h3>Ayuda</h3>
 
-                <a href="#">Guía de tallas</a>
-                <a href="#">Envíos</a>
-                <a href="#">Cambios y devoluciones</a>
-                <a href="#">Contacto</a>
+                <a href="#tallas">Guía de tallas</a>
+                <a href="identidad.html">Acerca de nosotros</a>
+                <a href="ubicacion.html">Ubicación de la tienda</a>
+                <a href="politicas.html">Cambios y devoluciones</a>
+                <a href="contacto.html">Contacto</a>
 
             </div>
 
@@ -920,5 +1062,100 @@
 
     </footer>
 
+
+    <!-- BOTÓN DE AYUDA / CHAT -->
+
+    <button class="help-button" id="helpButton" aria-label="Abrir asistente de ayuda">
+        💬
+    </button>
+
+    <div class="chat-panel" id="chatPanel">
+
+        <div class="chat-header">
+            <div>
+                <strong>Asistente Odie & Co.</strong>
+                <span>Normalmente responde al instante</span>
+            </div>
+            <button class="chat-close" id="chatClose" aria-label="Cerrar chat">✕</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-bubble bot">
+                ¡Hola! Soy el asistente virtual de Odie & Co. 👋 Puedo ayudarte con tallas,
+                envíos, cambios y devoluciones o cualquier duda sobre nuestros productos.
+                ¿En qué te ayudo?
+            </div>
+        </div>
+
+        <div class="chat-input-row">
+            <input type="text" id="chatInput" placeholder="Escribe tu mensaje...">
+            <button id="chatSend">Enviar</button>
+        </div>
+
+    </div>
+
+    <script>
+        (function () {
+            var helpButton = document.getElementById('helpButton');
+            var chatPanel = document.getElementById('chatPanel');
+            var chatClose = document.getElementById('chatClose');
+            var chatInput = document.getElementById('chatInput');
+            var chatSend = document.getElementById('chatSend');
+            var chatMessages = document.getElementById('chatMessages');
+
+            function toggleChat() {
+                chatPanel.classList.toggle('open');
+                if (chatPanel.classList.contains('open')) {
+                    chatInput.focus();
+                }
+            }
+
+            function addMessage(text, who) {
+                var bubble = document.createElement('div');
+                bubble.className = 'chat-bubble ' + who;
+                bubble.textContent = text;
+                chatMessages.appendChild(bubble);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function botReply(userText) {
+                var text = userText.toLowerCase();
+                var reply = 'Gracias por tu mensaje. Un miembro de nuestro equipo ' +
+                    'te responderá pronto. Mientras tanto, revisa la sección de ' +
+                    'Cambios y devoluciones o Contacto para más información.';
+
+                if (text.indexOf('talla') !== -1) {
+                    reply = 'Puedes ver nuestra guía de tallas en la sección "Guía de tallas" de esta página.';
+                } else if (text.indexOf('devol') !== -1 || text.indexOf('cambio') !== -1) {
+                    reply = 'Puedes consultar todos los detalles en la página de Cambios y devoluciones.';
+                } else if (text.indexOf('ubicaci') !== -1 || text.indexOf('tienda') !== -1 || text.indexOf('direcci') !== -1) {
+                    reply = 'Nuestra tienda está en Av. Las Américas, La Chorrera, Panamá Oeste. Puedes ver el mapa en la página de Ubicación.';
+                } else if (text.indexOf('contact') !== -1 || text.indexOf('tel') !== -1 || text.indexOf('correo') !== -1) {
+                    reply = 'Encuentras todos nuestros medios de contacto en la página de Contacto.';
+                }
+
+                setTimeout(function () {
+                    addMessage(reply, 'bot');
+                }, 500);
+            }
+
+            function sendMessage() {
+                var value = chatInput.value.trim();
+                if (!value) return;
+                addMessage(value, 'user');
+                chatInput.value = '';
+                botReply(value);
+            }
+
+            helpButton.addEventListener('click', toggleChat);
+            chatClose.addEventListener('click', toggleChat);
+            chatSend.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter') sendMessage();
+            });
+        })();
+    </script>
+
+    <script src="js/site.js" defer></script>
 </body>
 </html>

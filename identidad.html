@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="css/shop.css">
+
     <style>
 
         :root {
@@ -530,14 +532,18 @@
                 <a href="index.html#inicio">Inicio</a>
                 <a href="index.html#tienda">Tienda</a>
                 <a href="index.html#categorias">Categorías</a>
+                <a href="catalogo.html">Catálogo</a>
                 <a href="identidad.html">Nosotros</a>
                 <a href="ubicacion.html">Ubicación</a>
                 <a href="contacto.html">Contacto</a>
             </div>
 
-            <div class="nav-actions">
-                <a href="#" class="nav-action" aria-label="Buscar">⌕</a>
-                <a href="#" class="nav-action" aria-label="Carrito">0</a>
+                        <div class="nav-actions">
+                <a href="carrito.html" class="nav-action" aria-label="Carrito">
+                    🛒
+                    <span id="navCartCount" class="cart-badge" style="display:none;">0</span>
+                </a>
+                <a href="login.html" class="nav-action" id="navAccountLink" aria-label="Mi cuenta">👤</a>
             </div>
 
         </nav>
@@ -789,5 +795,6 @@
         })();
     </script>
 
+    <script src="js/site.js" defer></script>
 </body>
 </html>

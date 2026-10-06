@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ubicación | Odie & Co.</title>
+    <title>Iniciar sesión | Odie & Co.</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/shop.css">
 
     <style>
+
 
         :root {
             --kaki: #9b9a72;
@@ -64,7 +64,9 @@
             font-family: inherit;
         }
 
-        /* HEADER */
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
             background: rgba(250, 248, 243, 0.96);
@@ -118,15 +120,37 @@
             font-size: 15px;
         }
 
-        /* PAGE HERO (paginas internas) */
+        /* =========================
+           HERO
+        ========================= */
 
-        .page-hero {
-            padding: 46px 20px 10px;
-            max-width: 900px;
-            margin: 0 auto;
+        .hero {
+            padding: 18px 16px 0;
         }
 
-        .page-hero .eyebrow {
+        .hero-image {
+            height: 430px;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            background: var(--kaki-light);
+        }
+
+        .hero-image img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            position: absolute;
+            inset: auto 20px 20px 20px;
+
+            background: rgba(250, 248, 243, 0.94);
+            border-radius: 15px;
+            padding: 24px 20px;
+        }
+
+        .eyebrow {
             color: var(--kaki-dark);
             font-size: 12px;
             font-weight: 700;
@@ -135,40 +159,18 @@
             margin-bottom: 8px;
         }
 
-        .page-hero h1 {
+        h1 {
             font-family: "Playfair Display", serif;
-            font-size: 33px;
-            line-height: 1.2;
+            font-size: 35px;
+            line-height: 1.15;
             font-weight: 600;
             margin-bottom: 12px;
         }
 
-        .page-hero p {
+        .hero-content p {
             color: var(--muted);
             font-size: 15px;
-            max-width: 620px;
-        }
-
-        .section {
-            padding: 40px 20px 70px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            margin-bottom: 24px;
-        }
-
-        .section-header h2 {
-            font-family: "Playfair Display", serif;
-            font-size: 25px;
-            line-height: 1.2;
-            margin-bottom: 7px;
-        }
-
-        .section-header p {
-            color: var(--muted);
-            font-size: 14px;
+            margin-bottom: 20px;
         }
 
         .primary-button {
@@ -186,12 +188,187 @@
             font-weight: 600;
 
             transition: 0.2s ease;
-            border: none;
-            cursor: pointer;
         }
 
         .primary-button:hover {
             background: var(--kaki-dark);
+        }
+
+        /* =========================
+           SECCIONES
+        ========================= */
+
+        .section {
+            padding: 65px 20px;
+        }
+
+        .section-header {
+            margin-bottom: 28px;
+        }
+
+        .section-header h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 29px;
+            line-height: 1.2;
+            margin-bottom: 7px;
+        }
+
+        .section-header p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           CATEGORIAS
+        ========================= */
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .category {
+            min-height: 165px;
+            border-radius: 14px;
+            padding: 20px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category:nth-child(1) {
+            background: var(--green);
+        }
+
+        .category:nth-child(2) {
+            background: var(--pink);
+        }
+
+        .category:nth-child(3) {
+            background: var(--blue);
+        }
+
+        .category:nth-child(4) {
+            background: var(--peach);
+        }
+
+        .category span {
+            font-size: 12px;
+            color: #66665d;
+            margin-bottom: 2px;
+        }
+
+        .category h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 21px;
+            font-weight: 600;
+        }
+
+        /* =========================
+           PRODUCTOS
+        ========================= */
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px 12px;
+        }
+
+        .product-image {
+            height: 210px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #eeeae2;
+            margin-bottom: 12px;
+        }
+
+        .product-image img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-category {
+            font-size: 11px;
+            color: var(--kaki-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            font-weight: 600;
+        }
+
+        .product h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin: 3px 0;
+        }
+
+        .product-price {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* =========================
+           GUIA DE TALLAS
+        ========================= */
+
+        .size-guide {
+            background: var(--kaki-light);
+            border-radius: 18px;
+            padding: 30px 22px;
+        }
+
+        .size-guide h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 29px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .size-guide p {
+            color: #68685e;
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+
+        .size-steps {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .size-step {
+            background: rgba(255,255,255,0.6);
+            border-radius: 9px;
+            padding: 13px 15px;
+
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .step-number {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+
+            background: var(--kaki);
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .size-step span {
+            font-size: 13px;
         }
 
         .secondary-button {
@@ -204,7 +381,37 @@
             font-weight: 600;
         }
 
-        /* FOOTER */
+        /* =========================
+           PROPUESTA DE VALOR
+        ========================= */
+
+        .values {
+            display: grid;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .value {
+            background: var(--white);
+            padding: 25px 20px;
+        }
+
+        .value h3 {
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .value p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             background: #5f604c;
@@ -251,7 +458,9 @@
             font-size: 11px;
         }
 
-        /* TABLET */
+        /* =========================
+           TABLET
+        ========================= */
 
         @media (min-width: 700px) {
 
@@ -268,18 +477,56 @@
                 font-weight: 600;
             }
 
-            .page-hero {
+            .hero {
                 max-width: 1200px;
-                padding: 60px 30px 15px;
+                margin: auto;
+                padding: 25px 30px 0;
             }
 
-            .page-hero h1 {
-                font-size: 44px;
+            .hero-image {
+                height: 540px;
+            }
+
+            .hero-content {
+                max-width: 500px;
+                padding: 30px;
+                left: 35px;
+                bottom: 35px;
+            }
+
+            h1 {
+                font-size: 47px;
             }
 
             .section {
                 max-width: 1200px;
-                padding: 50px 30px 90px;
+                margin: auto;
+                padding: 85px 30px;
+            }
+
+            .categories {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .products {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 25px;
+            }
+
+            .product-image {
+                height: 280px;
+            }
+
+            .size-guide {
+                padding: 45px;
+            }
+
+            .size-steps {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .values {
+                grid-template-columns: repeat(3, 1fr);
             }
 
             footer {
@@ -421,78 +668,13 @@
             cursor: pointer;
         }
 
-
-        .map-wrap {
-            border-radius: 18px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            height: 380px;
-            margin-bottom: 24px;
-        }
-
-        .map-wrap iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .location-details {
-            display: grid;
-            gap: 12px;
-        }
-
-        .location-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 18px 20px;
-            display: flex;
-            gap: 14px;
-            align-items: flex-start;
-        }
-
-        .location-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: var(--kaki-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 16px;
-        }
-
-        .location-card h3 {
-            font-size: 14px;
-            margin-bottom: 3px;
-        }
-
-        .location-card p {
-            font-size: 13px;
-            color: var(--muted);
-        }
-
-        @media (min-width: 700px) {
-            .map-page-grid {
-                display: grid;
-                grid-template-columns: 1.4fr 1fr;
-                gap: 24px;
-                align-items: start;
-            }
-
-            .map-wrap {
-                height: 460px;
-                margin-bottom: 0;
-            }
-        }
-
+    
     </style>
+
 </head>
 
 <body>
-
-    <header>
+<header>
 
         <nav class="navbar">
 
@@ -521,77 +703,36 @@
         </nav>
 
     </header>
-
     <main>
 
-        <section class="page-hero">
-            <div class="eyebrow">Ubicación</div>
-            <h1>Visítanos en nuestra tienda</h1>
-            <p>
-                Encuéntranos en Av. Las Américas, La Chorrera, Panamá Oeste, Panamá.
-                El mapa se actualiza en tiempo real con la ubicación exacta.
-            </p>
-        </section>
+        <section class="section" style="padding-top:60px;">
 
-        <section class="section">
+            <div class="auth-card">
+                <h1>Inicia sesión</h1>
+                <p class="subtitle">Accede a tu cuenta para completar tus compras y ver tu historial de pedidos.</p>
 
-            <div class="map-page-grid">
+                <form id="loginForm">
+                    <div class="form-row">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit" class="primary-button" style="width:100%;">Iniciar sesión</button>
+                    <div id="loginMessage" class="form-message"></div>
+                </form>
 
-                <div class="map-wrap">
-                    <iframe
-                        src="https://www.google.com/maps?q=Av.+Las+Am%C3%A9ricas,+La+Chorrera,+Panam%C3%A1+Oeste,+Panam%C3%A1&output=embed"
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="Ubicación de Odie & Co. en el mapa"
-                        allowfullscreen
-                    ></iframe>
+                <div class="auth-switch">
+                    ¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a>
                 </div>
-
-                <div class="location-details">
-
-                    <div class="location-card">
-                        <div class="location-icon">📍</div>
-                        <div>
-                            <h3>Dirección</h3>
-                            <p>Av. Las Américas, La Chorrera, Panamá Oeste, Panamá.</p>
-                        </div>
-                    </div>
-
-                    <div class="location-card">
-                        <div class="location-icon">🕒</div>
-                        <div>
-                            <h3>Horario</h3>
-                            <p>Lunes a sábado, de 9:00 a.m. a 6:00 p.m.</p>
-                        </div>
-                    </div>
-
-                    <div class="location-card">
-                        <div class="location-icon">🚗</div>
-                        <div>
-                            <h3>Cómo llegar</h3>
-                            <p>Estacionamiento disponible frente al local. Acceso directo desde la avenida principal.</p>
-                        </div>
-                    </div>
-
-                    <a
-                        href="https://www.google.com/maps/dir/?api=1&destination=Av.+Las+Am%C3%A9ricas,+La+Chorrera,+Panam%C3%A1+Oeste,+Panam%C3%A1"
-                        target="_blank"
-                        rel="noopener"
-                        class="primary-button"
-                        style="margin-top:6px;"
-                    >
-                        Cómo llegar en Google Maps
-                    </a>
-
-                </div>
-
             </div>
 
         </section>
 
     </main>
-
-    <footer>
+<footer>
 
         <div class="footer-logo">
             Odie & Co.
@@ -608,10 +749,10 @@
 
                 <h3>Tienda</h3>
 
-                <a href="index.html#tienda">Bebés</a>
-                <a href="index.html#tienda">Primeros pasos</a>
-                <a href="index.html#tienda">Caminantes</a>
-                <a href="index.html#tienda">Sandalias</a>
+                <a href="catalogo.html?category=Bebés">Bebés</a>
+                <a href="catalogo.html?category=Primeros pasos">Primeros pasos</a>
+                <a href="catalogo.html?category=Caminantes">Caminantes</a>
+                <a href="catalogo.html?category=Sandalias">Sandalias</a>
 
             </div>
 
@@ -619,6 +760,7 @@
 
                 <h3>Ayuda</h3>
 
+                <a href="#tallas">Guía de tallas</a>
                 <a href="identidad.html">Acerca de nosotros</a>
                 <a href="ubicacion.html">Ubicación de la tienda</a>
                 <a href="politicas.html">Cambios y devoluciones</a>
@@ -633,9 +775,7 @@
         </div>
 
     </footer>
-
-
-    <!-- BOTÓN DE AYUDA / CHAT -->
+<!-- BOTÓN DE AYUDA / CHAT -->
 
     <button class="help-button" id="helpButton" aria-label="Abrir asistente de ayuda">
         💬
@@ -690,9 +830,6 @@
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             }
 
-            // Respuesta de demostración: aquí se debe conectar un backend
-            // propio con IA (por ejemplo, la API de Anthropic) para dar
-            // respuestas reales y personalizadas.
             function botReply(userText) {
                 var text = userText.toLowerCase();
                 var reply = 'Gracias por tu mensaje. Un miembro de nuestro equipo ' +
@@ -700,14 +837,11 @@
                     'Cambios y devoluciones o Contacto para más información.';
 
                 if (text.indexOf('talla') !== -1) {
-                    reply = 'Puedes ver nuestra guía de tallas en la página de inicio, ' +
-                        'en la sección "Guía de tallas".';
+                    reply = 'Puedes ver nuestra guía de tallas en la sección "Guía de tallas" de esta página.';
                 } else if (text.indexOf('devol') !== -1 || text.indexOf('cambio') !== -1) {
-                    reply = 'Puedes consultar todos los detalles en la página de ' +
-                        'Cambios y devoluciones.';
+                    reply = 'Puedes consultar todos los detalles en la página de Cambios y devoluciones.';
                 } else if (text.indexOf('ubicaci') !== -1 || text.indexOf('tienda') !== -1 || text.indexOf('direcci') !== -1) {
-                    reply = 'Nuestra tienda está en Av. Las Américas, La Chorrera, ' +
-                        'Panamá Oeste. Puedes ver el mapa en la página de Ubicación.';
+                    reply = 'Nuestra tienda está en Av. Las Américas, La Chorrera, Panamá Oeste. Puedes ver el mapa en la página de Ubicación.';
                 } else if (text.indexOf('contact') !== -1 || text.indexOf('tel') !== -1 || text.indexOf('correo') !== -1) {
                     reply = 'Encuentras todos nuestros medios de contacto en la página de Contacto.';
                 }
@@ -735,5 +869,7 @@
     </script>
 
     <script src="js/site.js" defer></script>
+<script src="js/cuenta.js" defer></script>
+
 </body>
 </html>
